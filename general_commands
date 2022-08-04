@@ -1,3 +1,5 @@
-snakemake -p --use-conda --conda-prefix /scratch1/kar131/4.Magpie_goose/ --jobs=3 --cluster "sbatch -t 0:30:00 -N 1 -c 14 -J dmnd --mem=30gb "
+snakemake -p --use-conda --conda-prefix /scratch1/kar131/4.Magpie_goose/ --jobs=1 --cluster "sbatch -t 12:30:00 -N 1 -c 22 --mem=120gb "
+
+
 #make sure you correctly copy the config file of the kofamscan to the new environment or you can give the KO list and the profiles as the components of the command line so you only need to edit the 
 #Snakefile
