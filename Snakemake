@@ -1,0 +1,37 @@
+#----------------------------------------------------------
+#local environment variables
+import os
+envars:
+  "TMPDIR"
+
+# Working directories
+WDIR = os.environ["TMPDIR"]
+
+path = os.getcwd()
+
+configfile: path + "/config.yaml"
+
+# Check whether the specified path exists or not
+RESDIR = path + "/results"
+isExist = os.path.exists(RESDIR)
+if not isExist:
+# Create a new directory because it does not exist 
+  os.makedirs(RESDIR)
+  print("The new directory is created!")
+
+PROT_DIR = config["prot_dir"]
+PROTEOME = glob.wildcards(PROT_DIR + {samlple}.faa)
+N_Prot = len(PROTEOME)
+print( "number of proteomes to produce: " + N_prot)
+
+rule all:
+	input:
+	 expand(RESDIR + "/{sample}_final.txt, sample = PROTEOME)
+	 
+
+  
+
+
+
+
+
